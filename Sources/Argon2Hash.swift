@@ -7,8 +7,8 @@ public enum Argon2ProviderError: Error {
 }
 
 public final class Argon2Hash: HashProtocol, ConfigInitializable {
-    static let defaultTimeCost: UInt32 = 2
-    static let defaultMemoryCost: UInt32 = 16
+    static let defaultTimeCost: UInt32 = 3
+    static let defaultMemoryCost: UInt32 = 12
     static let defaultParallelism: UInt32 = 1
     static let defaultSaltLength: Int = 32
 
