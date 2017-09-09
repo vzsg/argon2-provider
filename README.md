@@ -1,4 +1,4 @@
-# Argon2 Provider for Vapor 2.x
+# Argon2 Provider for Vapor 2.x [![CircleCI](https://circleci.com/gh/vzsg/argon2-provider.svg?style=svg)](https://circleci.com/gh/vzsg/argon2-provider)
 
 This package allows you to integrate the Argon2 password hash with Vapor applications.
 
