@@ -1,0 +1,18 @@
+language: generic
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode8.3
+
+before_install:
+  - gem install xcpretty
+  - brew install openssl
+
+script:
+  # run unit tests
+  - swift build --configuration release -Xswiftc -I/usr/local/include -Xlinker -L/usr/local/lib -Xswiftc -I/usr/local/opt/openssl/include -Xlinker -L/usr/local/opt/openssl/lib
+  - swift package -Xswiftc -I/usr/local/include -Xlinker -L/usr/local/lib -Xswiftc -I/usr/local/opt/openssl/include -Xlinker -L/usr/local/opt/openssl/lib generate-xcodeproj
+  - xcodebuild -scheme Argon2Provider -enableCodeCoverage YES test | xcpretty  # instead of swift test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
